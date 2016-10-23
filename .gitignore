@@ -3,3 +3,4 @@ node_modules/
 !clean.js
 *.map
 *.log
+coverage
