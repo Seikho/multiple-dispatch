@@ -4,12 +4,14 @@ import * as Errors from './error';
 export default function findMatch<TReturn, TDispatch>(
     types: TDispatch[],
     dispatchers: DispatchHandler<TReturn, TDispatch>[],
-    options: DispatchOptions<TDispatch>
+    options: DispatchOptions<TDispatch>,
+    throwOverride?: boolean
 ) {
+    const willThrow = throwOverride !== undefined ? throwOverride : options.throw;
     if (types.length !== options.params.length) {
         // Is this expected? Should we offer some default behaviour here?
         if (options.throw) {
-            throw new Errors.InsufficientTypes('Invalid number of type arguments');
+            throw new Errors.InvalidTypeCount('Invalid number of type arguments provided');
         }
         return null;
     }
@@ -30,15 +32,23 @@ export default function findMatch<TReturn, TDispatch>(
 
     const max = Math.max(...results.map(result => result.matches));
     const maxMatches = results.filter(result => result.matches === max);
-    if (maxMatches.length === 0) {
-        if (options.throw) {
+    if (max === 0) {
+        if (willThrow) {
             throw new Errors.NoMatchError(`No match found for types [${types.toString()}]`);
         }
         return null;
     }
+    
+    if (max !== types.length) {
+        if (willThrow) {
+            throw new Errors.AmbiguousError(`Specific match not found [${types.toString()}]`);
+        }
+        return null;
+    }
+
     if (maxMatches.length > 1) {
         // This should no longer occur as this is caught when adding overrides
-        if (options.throw) {
+        if (willThrow) {
             throw new Errors.AmbiguousError(`Multiple matches found fore types [${types.toString()}]`);
         }
         return null;

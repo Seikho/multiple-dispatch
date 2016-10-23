@@ -32,4 +32,4 @@ export default function create<TReturn, TDispatch>(options: DispatchOptions<TDis
     };
 }
 
-export { Errors }
+export { Errors, Dispatcher, DispatchOptions, DispatchHandler }
