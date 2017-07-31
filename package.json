@@ -5,8 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "prepublish": "npm run test",
-    "test": "npm run build && istanbul cover --report text --report html node_modules/mocha/bin/_mocha -- test/**/*.js --recurse",
-    "build": "npm run clean && tsc",
+    "test": "npm run build && istanbul cover --report text --report html node_modules/mocha/bin/_mocha -- \"test/**/*.js\" --recurse",
+    "build": "tsc",
     "clean": "node clean.js"
   },
   "files": [
