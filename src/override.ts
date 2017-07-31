@@ -8,7 +8,7 @@ export default function addOverride<TReturn, TDispatch>(
     dispatchers: DispatchHandler<TReturn, TDispatch>[],
     options: DispatchOptions<TDispatch>
 ) {
-    if (options.params.length !== types.length) {
+    if (!options.ignoreArity && options.params.length !== types.length) {
         if (options.throw) {
             throw new Errors.InvalidOverride(`Insufficient type parameters provided. Expected ${options.params.length}, received ${types.length}`);
         }

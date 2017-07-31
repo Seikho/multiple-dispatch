@@ -35,6 +35,22 @@ const fixtures: Array<MatchFixture> = [
         ]
     },
     {
+        name: 'too many arguments',
+        params,
+        handlers: baseHandler,
+        assertions: [
+            { in: 'abc', out: Errors.InvalidTypeCount }
+        ]
+    },
+    {
+        name: 'too few arguments',
+        params,
+        handlers: baseHandler,
+        assertions: [
+            { in: 'a', out: Errors.InvalidTypeCount }
+        ]
+    },
+    {
         name: 'no match found',
         params,
         handlers: baseHandler,

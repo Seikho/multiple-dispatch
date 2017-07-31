@@ -2,6 +2,7 @@ export interface DispatchOptions<TDispatch> {
     name: string;
     params: Array<{ name: string, isa?: (special: TDispatch, general: TDispatch) => boolean }>;
     throw?: boolean;
+    ignoreArity?: boolean;
 }
 
 export interface Dispatcher<TReturn, TDispatch> {

@@ -8,6 +8,14 @@ export default function findMatch<TReturn, TDispatch>(
     throwOverride?: boolean
 ) {
     const willThrow = throwOverride !== undefined ? throwOverride : options.throw;
+    if (!options.ignoreArity && types.length !== options.params.length) {
+        // Is this expected? Should we offer some default behaviour here?
+        if (options.throw) {
+            throw new Errors.InvalidTypeCount('Invalid number of type arguments provided');
+        }
+        return null;
+    }
+
     const results: { matches: number, dispatcher: DispatchHandler<TReturn, TDispatch> }[] = [];
     for (const dispatcher of dispatchers) {
         let matches = 0;
