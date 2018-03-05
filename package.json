@@ -1,8 +1,8 @@
 {
   "name": "multiple-dispatch",
-  "version": "0.3.2",
+  "version": "0.3.4",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "prepublish": "npm run test",
     "test": "npm run build && istanbul cover --report text --report html node_modules/mocha/bin/_mocha -- \"test/**/*.js\" --recurse",
