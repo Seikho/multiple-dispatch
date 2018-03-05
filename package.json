@@ -1,6 +1,6 @@
 {
   "name": "multiple-dispatch",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "",
   "main": "dist/src/index.js",
   "scripts": {
@@ -9,9 +9,6 @@
     "build": "tsc",
     "clean": "node clean.js"
   },
-  "files": [
-    "src"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/seikho/multiple-dispatch.git"
