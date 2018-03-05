@@ -5,9 +5,12 @@
         "noImplicitAny": true,
         "sourceMap": true,
         "noImplicitReturns": true,
-        "strictNullChecks": true
+        "strictNullChecks": true,
+        "declaration": true,
+        "declarationDir": "./types"
     },
     "exclude": [
-        "node_modules"
+        "node_modules",
+        "types"
     ]
 }
