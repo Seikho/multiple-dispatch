@@ -1,4 +1,11 @@
 {
     "typescript.tsdk": "./node_modules/typescript/lib",
-    "tslint.enable": false
+    "prettier.semi": false,
+    "prettier.printWidth": 120,
+    "prettier.useTabs": false,
+    "prettier.tabWidth": 2,
+    "prettier.trailingComma": "none",
+    "prettier.bracketSpacing": true,
+    "prettier.singleQuote": true,
+    "editor.formatOnSave": true
 }

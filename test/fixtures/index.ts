@@ -1,8 +1,8 @@
-import create, * as Types from '../../src';
+import create, * as Types from '../../src'
 
 const single = () => {
-    create({
-        name: 'single',
-        params: []
-    });     
+  create({
+    name: 'single',
+    params: []
+  })
 }
