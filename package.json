@@ -1,19 +1,25 @@
 {
   "name": "multiple-dispatch",
-  "version": "0.3.7",
+  "version": "1.0.0",
   "description": "",
   "main": "dist/src/index.js",
+  "types": "types/src/index.d.ts",
   "scripts": {
-    "prepublish": "npm run test",
-    "test": "mocha --recursive \"test/**/*.js\"",
+    "prepublishOnly": "yarn test",
+    "test": "mocha --recursive \"dist/test/**/*.js\"",
     "build": "tsc",
-    "clean": "rm -rf dist test"
+    "clean": "rm -rf dist"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/seikho/multiple-dispatch.git"
   },
-  "keywords": ["multimethod", "multiple", "dispatch", "typescript"],
+  "keywords": [
+    "multimethod",
+    "multiple",
+    "dispatch",
+    "typescript"
+  ],
   "author": "Carl Winkler",
   "license": "MIT",
   "bugs": {
@@ -21,10 +27,10 @@
   },
   "homepage": "https://github.com/seikho/multiple-dispatch#readme",
   "devDependencies": {
+    "@types/chai": "^4.3.1",
+    "@types/mocha": "^9.1.1",
     "chai": "^3.5.0",
     "mocha": "^3.1.2",
-    "prettier": "^1.11.1",
-    "typescript": "^2.7.2"
-  },
-  "typings": "types/src/index.d.ts"
+    "typescript": "^4.7.3"
+  }
 }

@@ -22,7 +22,7 @@ function testMatch(fixture: MatchFixture, throwSetting: boolean) {
       const actual = match(types, dispatchers, options)
       const expected = isError(assertion.out) ? null : assertion.out
       expect(actual).to.equal(expected)
-    } catch (ex) {
+    } catch (ex: any) {
       expect(throwSetting, 'only throw when configured to').to.equal(true)
       expect(ex.constructor.name, 'throw the correct error class').to.equal(assertion.out.name)
     }

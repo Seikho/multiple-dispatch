@@ -26,7 +26,7 @@ function testOverride(fixture: OverrideFixture, throwSetting: boolean) {
       results.push(dispatcher.override(override.types, override.handler))
     }
     const expected = fixture.throws === null
-    const actual = results.every(result => result === true)
+    const actual = results.every((result) => result === true)
     expect(actual, 'override as expected').to.equal(expected)
     return
   }
@@ -37,9 +37,9 @@ function testOverride(fixture: OverrideFixture, throwSetting: boolean) {
       results.push(dispatcher.override(override.types, override.handler))
     }
     const expected = fixture.throws === null
-    const actual = results.every(result => result === true)
+    const actual = results.every((result) => result === true)
     expect(actual, 'override as expected').to.equal(expected)
-  } catch (ex) {
+  } catch (ex: any) {
     expect(throwSetting, 'only throw when configured to').to.equal(true)
     const errorConstructor = fixture.throws as Errors.ErrorUnion
     expect(ex.constructor.name, 'throw the correct error class').to.equal(errorConstructor.name)
